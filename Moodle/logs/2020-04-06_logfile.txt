@@ -1,0 +1,1 @@
+2020-04-06 00:04:17.3594 INFO Course with id: c9d4c053-49b6-410c-bc78-2d54a9991871 doesn't exist in the database.

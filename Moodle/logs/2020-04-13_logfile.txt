@@ -1,0 +1,8 @@
+2020-04-13 19:44:05.1678 ERROR CourseForCreationDto object sent from client is null.
+2020-04-13 19:49:10.4772 ERROR CourseForCreationDto object sent from client is null.
+2020-04-13 20:08:35.6834 ERROR CompanyForCreationDto object sent from client is null.
+2020-04-13 21:20:51.9107 ERROR UserForCreationDto object sent from client is null.
+2020-04-13 23:02:30.9828 ERROR UserForCreationDto object sent from client is null.
+2020-04-13 23:13:21.2256 ERROR UserForCreationDto object sent from client is null.
+2020-04-13 23:28:25.6413 ERROR UserForCreationDto object sent from client is null.
+2020-04-13 23:29:25.9348 ERROR UserForCreationDto object sent from client is null.
