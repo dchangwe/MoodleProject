@@ -8,6 +8,8 @@ using Entities.DataTransferObject;
 using AutoMapper;
 using Repository;
 using Entities.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using Moodle.ModelBinders;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -53,6 +55,24 @@ namespace Moodle.Controllers
                 return Ok(userDto);
             }
         }
+        [HttpGet("collection/({ids})", Name = "UserCollection")]
+        //public IActionResult GetUserCollection(IEnumerable<Guid> ids)
+            public IActionResult GetUserCollection([ModelBinder(BinderType =typeof(ArrayModelBinder))]IEnumerable<Guid> ids)
+        {
+            if (ids == null)
+            {
+                _logger.LogError("Parameter ids is null");
+                return BadRequest("Parameter ids is null");
+            }
+            var userEntities = _repository.User.GetByIds(ids, trackChanges: false);
+            if (ids.Count() != userEntities.Count())
+            {
+                _logger.LogError("Some ids are not valid in a collection");
+                return NotFound();
+            }
+            var usersToReturn = _mapper.Map<IEnumerable<UserDto>>(userEntities);
+            return Ok(usersToReturn);
+        }
 
 
         [HttpPost]
@@ -76,7 +96,27 @@ namespace Moodle.Controllers
             return CreatedAtRoute("UserById", new
             {
                 id = userToReturn.Id
-            }, userToReturn);
+            },
+            userToReturn);
+        }
+        [HttpPost("collection")]
+        public IActionResult CreateUserCollection([FromBody]IEnumerable<UserForCreationDto> userCollection)
+        {
+            if (userCollection == null)
+            {
+                _logger.LogError("User collection sent from client is null.");
+                return BadRequest("User collection is null");
+            }
+            var userEntities = _mapper.Map<IEnumerable<User>>(userCollection);
+            foreach (var user in userEntities)
+            {
+                _repository.User.CreateUser(user);
+            }
+            _repository.Save();
+            var userCollectionToReturn = _mapper.Map<IEnumerable<UserDto>>(userEntities);
+            var ids = string.Join(",", userCollectionToReturn.Select(u => u.Id));
+            return CreatedAtRoute("userCollection", new { ids },
+           userCollectionToReturn);
         }
     }
 }

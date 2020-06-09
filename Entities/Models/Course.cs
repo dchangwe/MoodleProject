@@ -16,7 +16,7 @@ namespace Entities.Models
          public string CourseName { get; set; }
 
         [Required(ErrorMessage = "Course decription is a required field.")]
-        [MaxLength(200, ErrorMessage = "Maximum length for the description is 60 characters")] 
+        [MaxLength(200, ErrorMessage = "Maximum length for the description is 200 characters")] 
         public string Description { get; set; }
 
         public ICollection<Section> Sections { get; set; }

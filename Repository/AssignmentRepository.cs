@@ -16,9 +16,17 @@ namespace Repository
         }
         public IEnumerable<Assignment> GetAssignments(Guid courseId, bool trackChanges) => 
             FindByCondition(a => a.CourseId.Equals(courseId), trackChanges)
-            .OrderBy(a => a.AssignmentName);
+            .OrderBy(a => a.Id);
         public Assignment GetAssignment(Guid courseId, Guid id, bool trackChanges) => 
             FindByCondition(a => a.CourseId.Equals(courseId) && a.Id.Equals(id), trackChanges)
             .SingleOrDefault();
+        public void CreateAssignmentForCourse(Guid courseId, Assignment assignment) { 
+            assignment.CourseId = courseId; 
+            Create(assignment); 
+        }
+        public void DeleteAssignment(Assignment assignment)
+        {
+            Delete(assignment);
+        }
     }
 }

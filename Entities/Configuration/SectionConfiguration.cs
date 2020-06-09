@@ -19,7 +19,7 @@ namespace Entities.Configuration
                     Id = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"),
                     StartDate = "03/04/2020",
                     EndDate = "12/05/2020",
-                    CourseId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870")
+                    CourseId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3")
                 },
                 new Section
                 {

@@ -1,0 +1,1 @@
+2020-05-04 22:58:10.7301 ERROR CourseForCreationDto object sent from client is null.

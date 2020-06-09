@@ -24,6 +24,10 @@ namespace Moodle
             CreateMap<Submission, SubmissionDto>();
             CreateMap<CourseForCreationDto, Course>();
             CreateMap<UserForCreationDto, User>();
+            CreateMap<AssignmentForCreationDto, Assignment>();
+            CreateMap<AssignmentForUpdateDto, Assignment>();
+            CreateMap<CourseForUpdateDto, Course>();
+            CreateMap<AssignmentForUpdateDto, Assignment>().ReverseMap();
         }
     }
 }

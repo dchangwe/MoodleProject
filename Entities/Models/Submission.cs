@@ -13,7 +13,7 @@ namespace Entities.Models
 
         [Required(ErrorMessage = "Score is a required field.")] 
         
-        public double   Score { get; set; }
+        public string  Score { get; set; }
         [Required(ErrorMessage = "submission text is a required field.")]
         [MaxLength(60, ErrorMessage = "Maximum length for the submission text is 100 characters.")]
         public string Submission_Comment { get; set; }

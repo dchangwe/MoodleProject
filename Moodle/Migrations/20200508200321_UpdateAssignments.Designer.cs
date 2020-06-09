@@ -4,14 +4,16 @@ using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Moodle.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20200508200321_UpdateAssignments")]
+    partial class UpdateAssignments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,14 +50,14 @@ namespace Moodle.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("87a56797-c2f3-47cb-aa17-f940a61f5ae7"),
+                            Id = new Guid("77a56797-c2f3-47cb-aa17-f940a61f5ae7"),
                             AssignmentName = "Project setup",
                             CourseId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
                             Description = "create a  new web API project and configure it to the project"
                         },
                         new
                         {
-                            Id = new Guid("3d7ebe4b-d62f-4d09-b37c-9081609dc025"),
+                            Id = new Guid("2d7ebe4b-d62f-4d09-b37c-9081609dc025"),
                             AssignmentName = "Configuring a logging service",
                             CourseId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
                             Description = "add a logging service to the project"
@@ -160,7 +162,7 @@ namespace Moodle.Migrations
                         new
                         {
                             Id = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"),
-                            CourseId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
+                            CourseId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
                             EndDate = "12/05/2020",
                             StartDate = "03/04/2020"
                         },
@@ -212,18 +214,18 @@ namespace Moodle.Migrations
                         new
                         {
                             Id = new Guid("f069b2ff-c17e-404c-ae78-bd9cfec1adf2"),
-                            AssignmentId = new Guid("87a56797-c2f3-47cb-aa17-f940a61f5ae7"),
+                            AssignmentId = new Guid("77a56797-c2f3-47cb-aa17-f940a61f5ae7"),
                             Score = "3.0",
-                            SectionId = new Guid("7cf612a1-824c-46cd-9067-77f74489216b"),
+                            SectionId = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"),
                             Submission_Comment = "you did good on the assignment",
                             UserId = new Guid("80abbca8-664d-4b20-b5de-024705497d4a")
                         },
                         new
                         {
                             Id = new Guid("23f77b75-70be-4059-a6a7-62b5f522ef9e"),
-                            AssignmentId = new Guid("3d7ebe4b-d62f-4d09-b37c-9081609dc025"),
+                            AssignmentId = new Guid("2d7ebe4b-d62f-4d09-b37c-9081609dc025"),
                             Score = "1.0",
-                            SectionId = new Guid("7cf612a1-824c-46cd-9067-77f74489216b"),
+                            SectionId = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"),
                             Submission_Comment = "you did not complete the assignment",
                             UserId = new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a")
                         });
